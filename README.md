@@ -1,6 +1,6 @@
 Daily Diary
 ===========
-A floating task wiki window with a diary template. Easily add and modify tasks with a due date for today.
+A floating taskwiki window with a diary template. Easily add and modify tasks with a due date for today.
 
 Requirements
 ------------
@@ -9,6 +9,8 @@ This uses neovim's floating windows. Tested with neovim 0.5.0. Using earlier ver
 This plugin uses vimwiki and taskwiki.  
 	* https://github.com/vimwiki/vimwiki  
 	* https://github.com/tools-life/taskwiki  
+	
+Which means you will need to install taskwarrior and any other dependencies listed in those repos.
 
 Installation
 ------------
@@ -28,3 +30,15 @@ TODO:
 ```vim
 :ToggleDailyDiary()
 ```
+
+Variables to Set
+----------------
+```vim
+" default values
+let g:vimwikidiaryPath = '~/vimwiki/diary'
+```
+
+TODO:
+Get the vimwiki variables to determine vimwikidiaryPath if they exist. Error if they don't.
+
+* Assign a variable that stores the vimwiki directory.

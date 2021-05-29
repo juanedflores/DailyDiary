@@ -1,9 +1,18 @@
-" Insert or delete brackets, parens, quotes in pairs.
+" A floating window of a taskwiki daily diary buffer.
 " Maintainer:	Juan Flores <juanedflores@gmail.com>
 " Last Change: 05-29-2021
 " Version: 0.1.0
 " Repository: https://github.com/juanedflores/DailyDiary
 " License: MIT
+
+if exists('g:DailyDiaryLoaded') | finish | endif
+let g:DailyDiaryLoaded = 1
+
+"--------------------------------- Verify vars ----------------------------------------
+" Wiki Diary Path
+if !exists('g:vimwikidiaryPath')
+    let g:vimwikidiaryPath = '~/vimwiki/diary'
+endif
 
 function! DailyDiaryFloating() abort
     " Define the size of the floating window
@@ -38,4 +47,3 @@ function! DailyDiaryFloating() abort
 		" open vimwiki diary in the buffer
 		execute("call vimwiki#diary#make_note(0)")
 endfunction
-
