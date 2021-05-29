@@ -1,3 +1,10 @@
+" Insert or delete brackets, parens, quotes in pairs.
+" Maintainer:	Juan Flores <juanedflores@gmail.com>
+" Last Change: 05-29-2021
+" Version: 0.1.0
+" Repository: https://github.com/juanedflores/DailyDiary
+" License: MIT
+
 function! DailyDiaryFloating() abort
     " Define the size of the floating window
     let width = 70
@@ -25,7 +32,6 @@ function! DailyDiaryFloating() abort
                 \ 'style': 'minimal',
 								\ 'border': 'double'
                 \ }
-
 
     let win = nvim_open_win(buf, 1, opts)
 
