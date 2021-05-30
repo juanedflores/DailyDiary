@@ -2,7 +2,7 @@ Daily Diary
 ===========
 A floating taskwiki window with a diary template. Easily add and modify tasks with a due date for today.
 
-<img src="./screenshot.png" alt="drawing" width="300"/>
+<img src="./screenshot.png" alt="drawing" width="600"/>
 
 Requirements
 ------------
