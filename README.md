@@ -25,7 +25,7 @@ Plug 'juanedflores/DailyDiary'
 Commands
 --------
 ```vim
-:call ToggleDailyDiary()
+:call DailyDiaryToggle()
 ```
 
 Variables to Set
