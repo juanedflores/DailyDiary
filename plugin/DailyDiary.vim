@@ -35,7 +35,7 @@ function! NewDailyDiary() abort
                 \ 'row': (ui.height/2) - (height/2),
                 \ 'anchor': 'NW',
                 \ 'style': 'minimal',
-								\ 'border': 'double'
+                \ 'border': 'double'
                 \ }
 
     let win = nvim_open_win(buf, 1, opts)
@@ -78,7 +78,7 @@ function! DiaryWinShow()
                 \ 'row': (ui.height/2) - (height/2),
                 \ 'anchor': 'NW',
                 \ 'style': 'minimal',
-								\ 'border': 'double'
+                \ 'border': 'double'
                 \ }
 
     let win = nvim_open_win(s:diary_buf, 1, opts)
