@@ -64,6 +64,20 @@ endfunction
 function! DiaryWinShow()
     let win = nvim_open_win(s:diary_buf, 1, s:opts)
 
+    " Get the current UI
+    let s:ui = nvim_list_uis()[0]
+
+    " Create the floating window
+    let s:opts = {'relative': 'editor',
+                 \ 'width': s:width,
+                 \ 'height': s:height,
+                 \ 'col': (s:ui.width/2) - (s:width/2),
+                 \ 'row': (s:ui.height/2) - (s:height/2),
+                 \ 'anchor': 'NW',
+                 \ 'style': 'minimal',
+                 \ 'border': 'double'
+                 \ }
+
     " Set mappings in the buffer to close the window easily
     let closingKeys = ['<Esc>']
     for closingKey in closingKeys
