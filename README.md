@@ -23,7 +23,7 @@ Plug 'juanedflores/DailyDiary'
 Commands
 --------
 ```vim
-:ToggleDailyDiary()
+call ToggleDailyDiary()
 ```
 
 Variables to Set
