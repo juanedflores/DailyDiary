@@ -2,6 +2,8 @@ Daily Diary
 ===========
 A floating taskwiki window with a diary template. Easily add and modify tasks with a due date for today.
 
+![screenshot](./screenshot.png)
+
 Requirements
 ------------
 This uses neovim's floating windows. Tested with neovim 0.5.0. Using earlier versions might break.
@@ -23,7 +25,7 @@ Plug 'juanedflores/DailyDiary'
 Commands
 --------
 ```vim
-call ToggleDailyDiary()
+:call ToggleDailyDiary()
 ```
 
 Variables to Set
