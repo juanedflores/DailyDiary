@@ -23,11 +23,6 @@ Plug 'juanedflores/DailyDiary'
 Commands
 --------
 ```vim
-:call DailyDiaryFloating()
-```
-
-TODO:
-```vim
 :ToggleDailyDiary()
 ```
 
@@ -38,7 +33,6 @@ Variables to Set
 let g:vimwikidiaryPath = '~/vimwiki/diary'
 ```
 
-TODO:
-Get the vimwiki variables to determine vimwikidiaryPath if they exist. Error if they don't.
-
-* Assign a variable that stores the vimwiki directory.
+Key Mappings
+------------
+`<Esc>`: Closes the floating window when in normal mode.
