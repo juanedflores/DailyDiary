@@ -22,10 +22,14 @@ Example with vim-plug:
 Plug 'juanedflores/DailyDiary'
 ```
 
-Commands
+Usage
 --------
 ```vim
+"Ex
 :call DailyDiaryToggle()
+
+"map to key
+nmap <leader>d :call DailyDiaryToggle()<CR>
 ```
 
 Variables to Set
