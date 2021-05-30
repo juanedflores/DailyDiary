@@ -38,18 +38,18 @@ function! NewDailyDiary() abort
 
     let win = nvim_open_win(buf, 1, s:opts)
 
-		" open vimwiki diary in the buffer
-		execute("call vimwiki#diary#make_note(0)")
+    " open vimwiki diary in the buffer
+    execute("call vimwiki#diary#make_note(0)")
 
     let s:diary_buf = bufnr("%")
     let s:diary_name = bufname(s:diary_buf)
     let s:diary_win = win_getid(s:diary_buf)
 
-		" Set mappings in the buffer to close the window easily
-		let closingKeys = ['<Esc>']
-		for closingKey in closingKeys
-				call nvim_buf_set_keymap(s:diary_buf, 'n', closingKey, ':call DailyDiaryToggle()<CR>', {'silent': v:true, 'nowait': v:true, 'noremap': v:true})
-		endfor
+    " Set mappings in the buffer to close the window easily
+    let closingKeys = ['<Esc>']
+    for closingKey in closingKeys
+        call nvim_buf_set_keymap(s:diary_buf, 'n', closingKey, ':call DailyDiaryToggle()<CR>', {'silent': v:true, 'nowait': v:true, 'noremap': v:true})
+    endfor
     let s:diary_isopen = 1
 endfunction
 
@@ -64,11 +64,11 @@ endfunction
 function! DiaryWinShow()
     let win = nvim_open_win(s:diary_buf, 1, s:opts)
 
-		" Set mappings in the buffer to close the window easily
-		let closingKeys = ['<Esc>']
-		for closingKey in closingKeys
-				call nvim_buf_set_keymap(s:diary_buf, 'n', closingKey, ':call DailyDiaryToggle()<CR>', {'silent': v:true, 'nowait': v:true, 'noremap': v:true})
-		endfor
+    " Set mappings in the buffer to close the window easily
+    let closingKeys = ['<Esc>']
+    for closingKey in closingKeys
+        call nvim_buf_set_keymap(s:diary_buf, 'n', closingKey, ':call DailyDiaryToggle()<CR>', {'silent': v:true, 'nowait': v:true, 'noremap': v:true})
+    endfor
     let s:diary_isopen = 1
 endfunction
 
@@ -82,6 +82,5 @@ function! DailyDiaryToggle()
         endif
     else
         call NewDailyDiary()
-        echom "creating new buffer"
     endif
 endfunction
