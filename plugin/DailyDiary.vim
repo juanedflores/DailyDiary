@@ -48,7 +48,7 @@ function! NewDailyDiary() abort
     " Set mappings in the buffer to close the window easily
     let closingKeys = ['<Esc>']
     for closingKey in closingKeys
-        call nvim_buf_set_keymap(s:diary_buf, 'n', closingKey, ':call DailyDiaryToggle()<CR>', {'silent': v:true, 'nowait': v:true, 'noremap': v:true})
+        call nvim_buf_set_keymap(s:diary_buf, 'n', closingKey, ':close<CR>', {'silent': v:true, 'nowait': v:true, 'noremap': v:true})
     endfor
     let s:diary_isopen = 1
 endfunction
@@ -81,7 +81,7 @@ function! DiaryWinShow()
     " Set mappings in the buffer to close the window easily
     let closingKeys = ['<Esc>']
     for closingKey in closingKeys
-        call nvim_buf_set_keymap(s:diary_buf, 'n', closingKey, ':call DailyDiaryToggle()<CR>', {'silent': v:true, 'nowait': v:true, 'noremap': v:true})
+        call nvim_buf_set_keymap(s:diary_buf, 'n', closingKey, ':write | close<CR>', {'silent': v:true, 'nowait': v:true, 'noremap': v:true})
     endfor
     let s:diary_isopen = 1
 endfunction
@@ -89,6 +89,7 @@ endfunction
 function! DailyDiaryToggle()
     if (DiaryBufExists())
         if (s:diary_isopen && bufwinid(s:diary_buf) > 0)
+            execute "write"
             call nvim_win_close(s:diary_win, 0)
             let s:diary_isopen = 0
         else
