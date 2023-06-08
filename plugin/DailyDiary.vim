@@ -12,9 +12,10 @@ let g:DailyDiaryLoaded = 1
 " Wiki Diary Path
 if !exists('g:vimwikidiaryPath')
     let g:vimwikidiaryPath = '~/vimwiki/diary'
+    " let g:vimwikidiaryPath = '/Users/juanedflores/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Zettelkasten'
 endif
 
-let s:diary_isopen = 0
+let g:diary_isopen = 0
 let s:width = 70
 let s:height = 40
 
@@ -39,7 +40,8 @@ function! NewDailyDiary() abort
     let win = nvim_open_win(buf, 1, s:opts)
 
     " open vimwiki diary in the buffer
-    execute("call vimwiki#diary#make_note(0)")
+    " execute("call vimwiki#diary#make_note(0)")
+    execute(":VimwikiMakeDiaryNote")
 
     let s:diary_buf = bufnr("%")
     let s:diary_name = bufname(s:diary_buf)
@@ -50,7 +52,7 @@ function! NewDailyDiary() abort
     for closingKey in closingKeys
         call nvim_buf_set_keymap(s:diary_buf, 'n', closingKey, ':close<CR>', {'silent': v:true, 'nowait': v:true, 'noremap': v:true})
     endfor
-    let s:diary_isopen = 1
+    let g:diary_isopen = 1
 endfunction
 
 function! DiaryBufExists()
@@ -81,17 +83,17 @@ function! DiaryWinShow()
     " Set mappings in the buffer to close the window easily
     let closingKeys = ['<Esc>']
     for closingKey in closingKeys
-        call nvim_buf_set_keymap(s:diary_buf, 'n', closingKey, ':write | close<CR>', {'silent': v:true, 'nowait': v:true, 'noremap': v:true})
+        call nvim_buf_set_keymap(s:diary_buf, 'n', closingKey, ':write | :close<CR>', {'silent': v:true, 'nowait': v:true, 'noremap': v:true})
     endfor
-    let s:diary_isopen = 1
+    let g:diary_isopen = 1
 endfunction
 
 function! DailyDiaryToggle()
     if (DiaryBufExists())
-        if (s:diary_isopen && bufwinid(s:diary_buf) > 0)
+        if (g:diary_isopen && bufwinid(s:diary_buf) > 0)
             execute "write"
             call nvim_win_close(s:diary_win, 0)
-            let s:diary_isopen = 0
+            let g:diary_isopen = 0
         else
             call DiaryWinShow()
         endif
