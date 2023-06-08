@@ -16,7 +16,7 @@ class DiaryTemplate(object):
         self.nvim.out_write('started plugin')
         self.nvim.out_write("\n")
 
-    @pynvim.autocmd('BufNewFile', pattern='~/*.wiki', eval=None, sync=False)
+    @pynvim.autocmd('BufNewFile', pattern=diaryPath+'/*.wiki', eval=None, sync=False)
     def test(self):
         global diaryPath
         self.nvim.command_output("echom g:vimwikidiaryPath")
@@ -48,7 +48,7 @@ class DiaryTemplate(object):
         # self.nvim.out_write('loaded diary template!')
         # self.nvim.out_write("\n")
 
-    @pynvim.autocmd('BufNewFile', pattern='~/*.md', eval=None, sync=False)
+    @pynvim.autocmd('BufNewFile', pattern=diaryPath+'/*.md', eval=None, sync=False)
     def testmd(self):
         global diaryPath
         self.nvim.command_output("echom g:vimwikidiaryPath")

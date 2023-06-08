@@ -11,8 +11,8 @@ let g:DailyDiaryLoaded = 1
 "--------------------------------- Verify vars ----------------------------------------
 " Wiki Diary Path
 if !exists('g:vimwikidiaryPath')
-    let g:vimwikidiaryPath = '~/vimwiki/diary'
-    " let g:vimwikidiaryPath = '/Users/juanedflores/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Zettelkasten'
+    " let g:vimwikidiaryPath = '~/vimwiki/diary'
+    let g:vimwikidiaryPath = '/Users/juanedflores/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Zettelkasten/DailyDiary'
 endif
 
 let g:diary_isopen = 0
