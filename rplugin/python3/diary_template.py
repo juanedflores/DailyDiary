@@ -30,15 +30,15 @@ class DiaryTemplate(object):
 
         today_date = (datetime.date.today())
 
-        line1 = "# " + dow + ", " + m + " " + d
+        line1 = "= " + dow + ", " + m + " " + d + "="
         line2 = ""
-        line3 = "## Goals for Today | due:({})".format(today_date)
+        line3 = "== Goals for Today | due:({}) ==".format(today_date)
         line4 = ""
-        line5 = "## Due Soon | due:(eoy)"
+        line5 = "== Due Soon | due: =="
         line6 = ""
-        line7 = "## Issues Encountered"
+        line7 = "== Issues Encountered =="
         line8 = ""
-        line9 = "## Notes"
+        line9 = "== Notes =="
 
         buf[0] = line1
         buf.append(line2, index=-1)
@@ -66,15 +66,15 @@ class DiaryTemplate(object):
 
         today_date = (datetime.date.today())
 
-        line1 = "# " + dow + ", " + m + " " + d
+        line1 = "= " + dow + ", " + m + " " + d + "="
         line2 = ""
-        line3 = "## Goals for Today | due:({})".format(today_date)
+        line3 = "== Goals for Today | due:({}) ==".format(today_date)
         line4 = ""
-        line5 = "## Due Soon | due:(eoy)"
+        line5 = "== Due Soon | due: =="
         line6 = ""
-        line7 = "## Issues Encountered"
+        line7 = "== Issues Encountered =="
         line8 = ""
-        line9 = "## Notes"
+        line9 = "== Notes =="
 
         buf[0] = line1
         buf.append(line2, index=-1)
