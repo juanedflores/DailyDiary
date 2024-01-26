@@ -34,11 +34,11 @@ class DiaryTemplate(object):
         line2 = ""
         line3 = "## Goals for Today | due:({})".format(today_date)
         line4 = ""
-        line3 = "## Due Soon | due:()"
-        line4 = ""
-        line5 = "## Issues Encountered"
+        line5 = "## Due Soon | due:()"
         line6 = ""
-        line7 = "## Notes"
+        line7 = "## Issues Encountered"
+        line8 = ""
+        line9 = "## Notes"
 
         buf[0] = line1
         buf.append(line2, index=-1)
@@ -47,6 +47,8 @@ class DiaryTemplate(object):
         buf.append(line5, index=-1)
         buf.append(line6, index=-1)
         buf.append(line7, index=-1)
+        buf.append(line8, index=-1)
+        buf.append(line9, index=-1)
         # self.nvim.out_write('loaded diary template!')
         # self.nvim.out_write("\n")
 
@@ -64,13 +66,15 @@ class DiaryTemplate(object):
 
         today_date = (datetime.date.today())
 
-        line1 = "## " + dow + ", " + m + " " + d
+        line1 = "# " + dow + ", " + m + " " + d
         line2 = ""
-        line3 = "### Goals for Today | due:({})".format(today_date)
+        line3 = "## Goals for Today | due:({})".format(today_date)
         line4 = ""
-        line5 = "### Issues Encountered"
+        line5 = "## Due Soon | due:()"
         line6 = ""
-        line7 = "### Notes"
+        line7 = "## Issues Encountered"
+        line8 = ""
+        line9 = "## Notes"
 
         buf[0] = line1
         buf.append(line2, index=-1)
@@ -79,6 +83,8 @@ class DiaryTemplate(object):
         buf.append(line5, index=-1)
         buf.append(line6, index=-1)
         buf.append(line7, index=-1)
+        buf.append(line8, index=-1)
+        buf.append(line9, index=-1)
         # self.nvim.out_write('loading diary template!')
         # self.nvim.out_write("\n")
 
