@@ -34,6 +34,8 @@ class DiaryTemplate(object):
         line2 = ""
         line3 = "## Goals for Today | due:({})".format(today_date)
         line4 = ""
+        line3 = "## Due Soon | due:()"
+        line4 = ""
         line5 = "## Issues Encountered"
         line6 = ""
         line7 = "## Notes"
