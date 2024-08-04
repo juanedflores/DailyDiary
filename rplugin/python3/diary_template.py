@@ -1,5 +1,4 @@
 import pynvim
-import sys
 import datetime
 import calendar
 
