@@ -35,7 +35,7 @@ class DiaryTemplate(object):
         line4 = ""
         line5 = "## Goals for Today | status:pending".format(today_date)
         line6 = ""
-        line7 = "## Completed | status:completed"
+        line7 = "## Completed Today | end.after:yesterday status:completed"
         line8 = ""
         line9 = "## Issues Encountered"
         line10 = ""
@@ -79,7 +79,7 @@ class DiaryTemplate(object):
         line4 = ""
         line5 = "## Goals for Today | status:pending".format(today_date)
         line6 = ""
-        line7 = "## Completed | status:completed"
+        line7 = "## Completed Today | end.after:yesterday status:completed"
         line8 = ""
         line9 = "## Issues Encountered"
         line10 = ""
