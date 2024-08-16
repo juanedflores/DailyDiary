@@ -31,7 +31,8 @@ class DiaryTemplate(object):
 
         line1 = "# " + dow + ", " + m + " " + d
         line2 = ""
-        line3 = "## Goals for Today | due:({})".format(today_date)
+        line3 = "## Goals for Today | status:pending due:({})".format(
+            today_date)
         line4 = ""
         line5 = "## Due Soon | status:pending -TODAY"
         line6 = ""
@@ -77,7 +78,8 @@ class DiaryTemplate(object):
 
         line1 = "# " + dow + ", " + m + " " + d
         line2 = ""
-        line3 = "## Goals for Today | due:({})".format(today_date)
+        line3 = "## Goals for Today | status:pending due:({})".format(
+            today_date)
         line4 = ""
         line5 = "## Due Soon | status:pending -TODAY"
         line6 = ""
