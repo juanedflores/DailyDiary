@@ -26,15 +26,17 @@ let s:ui = nvim_list_uis()[0]
 let s:opts = {'relative': 'editor',
              \ 'width': s:width,
              \ 'height': s:height,
-             \ 'col': (s:ui.width/2) - (s:width/2),
-             \ 'row': (s:ui.height/2) - (s:height/2),
+             \ 'col': (s:ui.width - s:width)/2,
+             \ 'row': (s:ui.height - s:height)/2,
              \ 'anchor': 'NW',
              \ 'style': 'minimal',
-             \ 'border': 'double'
+             \ 'border': 'rounded'
              \ }
 
 function! NewDailyDiary() abort
     " Create the scratch buffer displayed in the floating window
+
+    echo("creating a new diary")
     let buf = nvim_create_buf(v:false, v:true)
 
     let win = nvim_open_win(buf, 1, s:opts)
@@ -64,26 +66,30 @@ function! DiaryBufExists()
 endfunction
 
 function! DiaryWinShow()
-    let win = nvim_open_win(s:diary_buf, 1, s:opts)
 
     " Get the current UI
-    let s:ui = nvim_list_uis()[0]
+    "let s:ui = nvim_list_uis()[0]
 
     " Create the floating window
-    let s:opts = {'relative': 'editor',
-                 \ 'width': s:width,
-                 \ 'height': s:height,
-                 \ 'col': (s:ui.width/2) - (s:width/2),
-                 \ 'row': (s:ui.height/2) - (s:height/2),
-                 \ 'anchor': 'NW',
-                 \ 'style': 'minimal',
-                 \ 'border': 'double'
-                 \ }
+    "let s:opts = {'relative': 'editor',
+    "             \ 'width': s:width,
+    "             \ 'height': s:height,
+    "             \ 'col': (s:ui.width - s:width)/2,
+    "             \ 'row': (s:ui.height - s:height)/2,
+    "             \ 'anchor': 'NW',
+    "             \ 'style': 'minimal',
+    "             \ 'border': 'double'
+    "             \ }
+
+    let win = nvim_open_win(s:diary_buf, 1, s:opts)
+
 
     " Set mappings in the buffer to close the window easily
     let closingKeys = ['<Esc>']
     for closingKey in closingKeys
-        call nvim_buf_set_keymap(s:diary_buf, 'n', closingKey, ':write | :close<CR>', {'silent': v:true, 'nowait': v:true, 'noremap': v:true})
+        "call nvim_buf_set_keymap(s:diary_buf, 'n', closingKey, ':write | :close<CR>', {'silent': v:true, 'nowait': v:true, 'noremap': v:true})
+        "call nvim_buf_set_keymap(s:diary_buf, 'n', closingKey, ':close<CR>', {'silent': v:true, 'nowait': v:true, 'noremap': v:true})
+        call nvim_buf_set_keymap(s:diary_buf, 'n', closingKey, ':call DailyDiaryToggle()<CR>', {'silent': v:true, 'nowait': v:true, 'noremap': v:true})
     endfor
     let g:diary_isopen = 1
 endfunction
@@ -91,10 +97,11 @@ endfunction
 function! DailyDiaryToggle()
     if (DiaryBufExists())
         if (g:diary_isopen && bufwinid(s:diary_buf) > 0)
-            execute "write"
+            "execute "write"
             call nvim_win_close(s:diary_win, 0)
             let g:diary_isopen = 0
         else
+            echo("buffer exists")
             call DiaryWinShow()
         endif
     else

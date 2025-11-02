@@ -12,10 +12,11 @@ class DiaryTemplate(object):
         global diaryPath
         self.nvim = nvim
         diaryPath = self.nvim.command_output("echom g:vimwikidiaryPath")
-        self.nvim.out_write('started plugin')
+        print(diaryPath)
+        self.nvim.out_write("started plugin")
         self.nvim.out_write("\n")
 
-    @pynvim.autocmd('BufNewFile', pattern='~/*.wiki', eval=None, sync=False)
+    @pynvim.autocmd("BufNewFile", pattern="~/*.wiki", eval=None, sync=False)
     def test(self):
         global diaryPath
         self.nvim.command_output("echom g:vimwikidiaryPath")
@@ -27,12 +28,11 @@ class DiaryTemplate(object):
         day = datetime.datetime.today().day
         d = ordinal(day)
 
-        today_date = (datetime.date.today())
+        today_date = datetime.date.today()
 
         line1 = "# " + dow + ", " + m + " " + d
         line2 = ""
-        line3 = "## Goals for Today | status:pending due:({})".format(
-            today_date)
+        line3 = "## Goals for Today | status:pending due:({})".format(today_date)
         line4 = ""
         line5 = "## Due Soon | status:pending -TODAY"
         line6 = ""
@@ -42,7 +42,7 @@ class DiaryTemplate(object):
         line10 = ""
         line11 = "## Notes"
         line12 = ""
-        line13 = '![[{}-canvas.canvas]]'.format(today_date)
+        line13 = "![[{}-canvas.canvas]]".format(today_date)
         line14 = "%% vim:nowrap:"
 
         buf[0] = line1
@@ -62,7 +62,7 @@ class DiaryTemplate(object):
         # self.nvim.out_write('loaded diary template!')
         # self.nvim.out_write("\n")
 
-    @pynvim.autocmd('BufNewFile', pattern=diaryPath+'/*.md', eval=None, sync=False)
+    @pynvim.autocmd("BufNewFile", pattern=diaryPath + "/*.md", eval=None, sync=False)
     def testmd(self):
         global diaryPath
         self.nvim.command_output("echom g:vimwikidiaryPath")
@@ -74,12 +74,11 @@ class DiaryTemplate(object):
         day = datetime.datetime.today().day
         d = ordinal(day)
 
-        today_date = (datetime.date.today())
+        today_date = datetime.date.today()
 
         line1 = "# " + dow + ", " + m + " " + d
         line2 = ""
-        line3 = "## Goals for Today | status:pending due:({})".format(
-            today_date)
+        line3 = "## Goals for Today | status:pending due:({})".format(today_date)
         line4 = ""
         line5 = "## Due Soon | status:pending -TODAY"
         line6 = ""
@@ -89,7 +88,7 @@ class DiaryTemplate(object):
         line10 = ""
         line11 = "## Notes"
         line12 = ""
-        line13 = '![[{}-canvas.canvas]]'.format(today_date)
+        line13 = "![[{}-canvas.canvas]]".format(today_date)
         line14 = "%% vim:nowrap:"
 
         buf[0] = line1
@@ -112,14 +111,14 @@ class DiaryTemplate(object):
 
 def ordinal(num):
     """Returns ordinal number string from int,
-       e.g. 1, 2, 3 becomes 1st, 2nd, 3rd, etc. """
+    e.g. 1, 2, 3 becomes 1st, 2nd, 3rd, etc."""
 
-    SUFFIXES = {1: 'st', 2: 'nd', 3: 'rd'}
+    SUFFIXES = {1: "st", 2: "nd", 3: "rd"}
 
     # 10-20 don't follow the normal counting scheme.
     if 10 <= num % 100 <= 20:
-        suffix = 'th'
+        suffix = "th"
     else:
         # the second parameter is a default.
-        suffix = SUFFIXES.get(num % 10, 'th')
+        suffix = SUFFIXES.get(num % 10, "th")
     return str(num) + suffix
