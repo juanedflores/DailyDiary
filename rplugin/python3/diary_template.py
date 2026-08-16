@@ -84,12 +84,21 @@ class DiaryTemplate(object):
         line6 = ""
         line7 = "## Completed Today | end.after:yesterday status:completed"
         line8 = ""
-        line9 = "## Issues Encountered"
-        line10 = ""
-        line11 = "## Notes"
-        line12 = ""
-        line13 = "![[{}-canvas.canvas]]".format(today_date)
-        line14 = "%% vim:nowrap:"
+        line9 = "\pagebreak"
+        line10 = "## Notes"
+        line11 = ""
+        line12 = "\pagebreak"
+        line13 = "## Issues Encountered"
+        line14 = ""
+        line15 = "\pagebreak"
+        line16 = "## Notes"
+        line17 = ""
+        line18 = "\pagebreak"
+        line19 = "## Notes"
+        line20 = ""
+        line21 = "\pagebreak"
+        line22 = "## Notes"
+        line23 = ""
 
         buf[0] = line1
         buf.append(line2, index=-1)
@@ -105,6 +114,15 @@ class DiaryTemplate(object):
         buf.append(line12, index=-1)
         buf.append(line13, index=-1)
         buf.append(line14, index=-1)
+        buf.append(line15, index=-1)
+        buf.append(line16, index=-1)
+        buf.append(line17, index=-1)
+        buf.append(line18, index=-1)
+        buf.append(line19, index=-1)
+        buf.append(line20, index=-1)
+        buf.append(line21, index=-1)
+        buf.append(line22, index=-1)
+        buf.append(line23, index=-1)
         # self.nvim.out_write('loading diary template!')
         # self.nvim.out_write("\n")
 

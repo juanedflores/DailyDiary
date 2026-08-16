@@ -38,6 +38,8 @@ local function create_floating_window(opts)
   -- vim.api.nvim_buf_set_name(buf, 'DailyDiary')
   -- vim.api.nvim_buf_set_keymap(buf, 'n', '<Esc>', ':close<CR>', { silent = true, nowait = true, noremap = true })
   vim.cmd('execute(":VimwikiMakeDiaryNote")')
+  vim.cmd('execute(":edit")')
+  vim.cmd('execute(":set nowrap")')
 
   return { buf = buf, win = win }
 end
