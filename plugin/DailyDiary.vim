@@ -108,3 +108,5 @@ function! DailyDiaryToggle()
         call NewDailyDiary()
     endif
 endfunction
+
+lua require("DailyDiary")
