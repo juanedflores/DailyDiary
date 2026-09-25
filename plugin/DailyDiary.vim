@@ -43,7 +43,8 @@ function! NewDailyDiary() abort
 
     " open vimwiki diary in the buffer
     " execute("call vimwiki#diary#make_note(0)")
-    execute(":VimwikiMakeDiaryNote")
+    " g:dailydiary_wiki: which g:vimwiki_list entry (1-based) holds the diary
+    execute(get(g:, "dailydiary_wiki", 1) . "VimwikiMakeDiaryNote")
 
     let s:diary_buf = bufnr("%")
     let s:diary_name = bufname(s:diary_buf)

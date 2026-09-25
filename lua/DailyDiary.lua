@@ -41,7 +41,11 @@ local function create_floating_window(opts)
 
   -- Create the floating window
   local win = vim.api.nvim_open_win(buf, true, win_config)
-  vim.cmd('execute(":VimwikiMakeDiaryNote")')
+  -- g:dailydiary_wiki picks which entry of g:vimwiki_list (1-based) the
+  -- diary lives in; :[count]VimwikiMakeDiaryNote uses that wiki's
+  -- path + diary_rel_path. Defaults to the first wiki, like a bare
+  -- :VimwikiMakeDiaryNote.
+  vim.cmd((vim.g.dailydiary_wiki or 1) .. 'VimwikiMakeDiaryNote')
   vim.cmd('execute(":edit")')
   vim.cmd('execute(":set nowrap")')
 
